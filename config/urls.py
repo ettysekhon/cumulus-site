@@ -14,9 +14,20 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
-from django.urls import path
+from django.contrib.sitemaps.views import sitemap
+from django.urls import include, path
+
+from blog.sitemaps import BlogSitemap
+
+sitemaps = {
+    "blog": BlogSitemap,
+}
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
+    path("", include("core.urls")),  # Route all base URLs to core app
+    path("blog/", include("blog.urls")),
+    path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
 ]

@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block title %}Blog | Cumulus Creations{% endblock%}
+{% block content %}
+<section class="space-y-20">
+  <div class="text-center">
+    <h1 class="text-4xl font-bold tracking-tight text-blue-900">Blog</h1>
+    <p class="mt-4 text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
+      Insights and musings on data, cloud, and modern engineering.
+    </p>
+  </div>
+
+  <div class="space-y-6">
+    {% for post in posts %}
+    <a href="{% url 'blog_detail' post.slug %}" class="block mb-4">
+      <div
+        class="flex flex-col md:flex-row space-y-1 md:space-y-0 md:space-x-4"
+      >
+        <p class="text-neutral-500 min-w-[130px] tabular-nums">
+          {{ post.created_at|date:"F j, Y" }}
+        </p>
+        <p class="text-blue-900 hover:underline">{{ post.title }}</p>
+      </div>
+    </a>
+    {% endfor %} {% if not posts %}
+    <p class="text-gray-500 text-center">No posts yet. Check back soon!</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

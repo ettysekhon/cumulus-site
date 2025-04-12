@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: cumulus-creations
+    env: python
+    plan: free
+    buildCommand: |
+      poetry install
+      python manage.py collectstatic --noinput
+      python manage.py migrate
+    startCommand: gunicorn config.wsgi:application --log-file -
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: config.settings
+      - key: PYTHON_VERSION
+        value: 3.11
+      - fromGroup: cumulus-creations-secrets

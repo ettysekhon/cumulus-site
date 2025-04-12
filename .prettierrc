@@ -1,0 +1,4 @@
+{
+  "html.format.unformatted": "code,script,style,pre,template",
+  "editor.formatOnSave": false
+}

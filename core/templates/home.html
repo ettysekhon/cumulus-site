@@ -1,0 +1,111 @@
+{% extends "base.html" %} {% load static %} {% block title %}Cumulus Creations |
+Cloud. Data. Software.{% endblock %} {% block content %}
+<section class="space-y-20">
+  <div class="text-center">
+    <img
+      src="{% static 'logos/logo.png' %}"
+      alt="Cumulus Creations"
+      class="mx-auto mb-4 w-full"
+    />
+  </div>
+  <div class="text-center">
+    <h1 class="text-4xl font-bold tracking-tight text-blue-900">
+      Where Cloud Engineering Meets Data Intelligence
+    </h1>
+    <p class="mt-4 text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
+      Cumulus Creations is a boutique product and data engineering studio
+      trusted by teams in finance, media, and energy. We deliver full-stack
+      applications, cloud-native platforms, and modern data pipelines. Our
+      collaborative approach allows us to grow internal capability while
+      delivering impactful solutions across the analytics lifecycle — from
+      ingestion to insight.
+    </p>
+  </div>
+
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-2xl font-semibold text-center mb-8">What We Do</h2>
+    <div class="grid gap-8 md:grid-cols-3 text-left">
+      <div>
+        <h3 class="text-lg font-semibold text-blue-900 mb-2">
+          Product Development
+        </h3>
+        <p class="text-gray-600 dark:text-gray-300">
+          Web & mobile apps built with React, React Native, and Flutter —
+          designed to scale, ship fast, and integrate seamlessly with AI-powered
+          services and APIs.
+        </p>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold text-blue-900 mb-2">
+          Cloud Engineering
+        </h3>
+        <p class="text-gray-600 dark:text-gray-300">
+          Deploy, integrate, and manage systems on AWS, Azure, and GCP — built
+          for resilience, observability, and supporting modern AI workflows and
+          inference pipelines.
+        </p>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold text-blue-900 mb-2">
+          Data & Analytics
+        </h3>
+        <p class="text-gray-600 dark:text-gray-300">
+          From real-time pipelines to lakehouse architectures, we help you
+          extract insight and enable machine learning with tools like
+          Databricks, dbt, and Airflow — making data ready for analysis or model
+          consumption.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-2xl font-semibold text-center mb-6">Trusted by Teams At</h2>
+    <div class="flex justify-center">
+      <img
+        src="{% static 'logos/clients.png' %}"
+        alt="Clients"
+        class="w-auto opacity-90"
+      />
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-2xl font-semibold mb-4">Latest Blog Posts</h2>
+    {% if posts %} {% for post in posts %}
+    <a href="{% url 'blog_detail' post.slug %}" class="block mb-4">
+      <div
+        class="flex flex-col md:flex-row space-y-1 md:space-y-0 md:space-x-4"
+      >
+        <p class="text-neutral-500 min-w-[130px] tabular-nums">
+          {{ post.created_at|date:"F j, Y" }}
+        </p>
+        <p class="text-blue-900 hover:underline">{{ post.title }}</p>
+      </div>
+    </a>
+    {% endfor %} {% else %}
+    <p class="text-gray-500">No blog posts yet. Check back soon!</p>
+    {% endif %}
+  </div>
+
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-2xl font-semibold mb-4">
+      Let’s Collaborate on Your Next Technical Leap
+    </h2>
+    <p class="text-gray-700 dark:text-gray-300 mb-4">
+      We take on select product and data engagements — full-stack, cloud-native,
+      or analytics-driven.
+    </p>
+  </div>
+</section>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Cumulus Creations",
+    "url": "https://cumulus-creations.com",
+    "logo": "https://cumulus-creations.com/static/images/logo.png",
+    "sameAs": []
+  }
+</script>
+{% endblock %}

@@ -49,8 +49,22 @@ poetry install --no-root
 - Type Python: Select Interpreter
 - Select entry like: `.venv/bin/python`
 
-## Running the dev server
+### Building the home page + base template
+
+- A core app for general site pages
+- A working homepage (/)
+- A base layout with SEO-ready head tags (no inline HTML)
+- Static + template support
 
 ```bash
+poetry run python manage.py startapp core
+```
+
+## Running the dev server with Tailwind
+
+```bash
+cd assets
+npm run dev
+cd ..
 poetry run python manage.py runserver
 ```

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} | Cumulus Blog{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block og_title %}{{ post.title }}{% endblock %}
+{% block og_url %}{{ request.build_absolute_uri }}{% endblock %}
+
+{% block content %}
+  <div class="space-y-20">
+    <div class="text-center">
+      <h1 class="text-4xl font-bold tracking-tight text-blue-900">
+        {{ post.title }}
+      </h1>
+      <p class="mt-4 text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
+        {{ post.created_at|date:"F j, Y" }}
+      </p>
+    </div>
+    <div class="space-y-6">
+      <div class="prose max-w-none">{{ post.get_markdown|safe }}</div>
+    </div>
+  </div>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "{{ post.title|escapejs }}",
+      "datePublished": "{{ post.created_at|date:'c' }}",
+      "dateModified": "{{ post.updated_at|date:'c' }}",
+      "author": {
+        "@type": "Person",
+        "name": "Cumulus Creations"
+      },
+      "url": "{{ request.build_absolute_uri }}"
+    }
+  </script>
+  <!-- End JSON-LD -->
+{% endblock %}
