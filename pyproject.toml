@@ -23,8 +23,10 @@ dependencies = [
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.poetry]
 name = "cumulus-site"
+version = "0.1.0"
+description = "Boutique cloud & data engineering studio — developer-first"
+authors = ["Cumulus Creations <info@cumulus-creations.com>"]
 
 [tool.poetry.group.dev.dependencies]
 black = "^25.1.0"
