@@ -1,11 +1,18 @@
-{% extends "base.html" %} {% load static %} {% block title %}Cumulus Creations |
-Cloud. Data. Software.{% endblock %} {% block content %}
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Cumulus Creations | Cloud. Data. Software.{% endblock %}
+{% block description %}
+Cumulus Creations is a boutique cloud and data engineering studio delivering full-stack apps, scalable platforms, and modern analytics pipelines.
+{% endblock %}
+{% block content %}
 <section class="space-y-20">
   <div class="text-center">
     <img
-      src="{% static 'logos/logo.png' %}"
+      src="{% static 'logos/logo.webp' %}"
       alt="Cumulus Creations"
       class="mx-auto mb-4 w-full"
+      width="560"
+      height="560"
     />
   </div>
   <div class="text-center">
@@ -63,9 +70,11 @@ Cloud. Data. Software.{% endblock %} {% block content %}
     <h2 class="text-2xl font-semibold text-center mb-6">Trusted by Teams At</h2>
     <div class="flex justify-center">
       <img
-        src="{% static 'logos/clients.png' %}"
+        src="{% static 'logos/clients.webp' %}"
         alt="Clients"
         class="w-auto opacity-90"
+        width="560"
+        height="374"
       />
     </div>
   </div>
