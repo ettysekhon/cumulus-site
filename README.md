@@ -2,8 +2,6 @@
 
 ## Project install
 
-The project was created using the following steps
-
 Install Poetry
 
 ```bash
