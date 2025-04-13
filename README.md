@@ -14,6 +14,7 @@ Install dependencies
 poetry install
 cd assets
 npm install
+cd ..
 ```
 
 ## Running the dev server with Tailwind
